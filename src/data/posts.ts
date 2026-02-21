@@ -45,8 +45,6 @@ export const posts: Post[] = [
   {
     id: "post07",
     postImage: require("@/assets/images/post07.jpg"),
-    content:
-      "Cozy grey knits for the weekend. Perfect for a chill day at home. 🛋️👕",
     postTime: "2024-02-05",
   },
   {
@@ -62,5 +60,17 @@ export const posts: Post[] = [
     content:
       "Breath-taking views of Maligne Lake. The scale of the Rockies is incredible. 🌲💎",
     postTime: "2024-04-01",
+  },
+  {
+    id: "post10",
+    postImage: require("@/assets/images/post10.jpg"),
+    content: "Missing the city vibes. 🏙️",
+    postTime: "2024-05-15",
+  },
+  {
+    id: "post11",
+    postImage: require("@/assets/images/post11.jpg"),
+    content: "Happy to be here!",
+    postTime: "2024-06-01",
   },
 ];

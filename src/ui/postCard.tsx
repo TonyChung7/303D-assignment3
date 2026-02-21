@@ -1,12 +1,13 @@
 import { router } from "expo-router";
-import { Dimensions, Image, Pressable, StyleSheet } from "react-native";
+import { Image, Pressable, StyleSheet } from "react-native";
 import { Post } from "../types/post";
 
-const screenWidth = Dimensions.get("window").width;
-const postImageSize = screenWidth / 3;
 export default function postCard(post: Post) {
   return (
-    <Pressable onPress={() => router.push(`/${post.id}`)}>
+    <Pressable
+      onPress={() => router.push(`/${post.id}`)}
+      style={styles.cardContainer}
+    >
       <Image
         source={post.postImage}
         style={styles.postImage}
@@ -17,9 +18,13 @@ export default function postCard(post: Post) {
 }
 
 const styles = StyleSheet.create({
-  postImage: {
-    width: postImageSize,
-    height: undefined,
+  cardContainer: {
+    flex: 1,
     aspectRatio: 4 / 5,
+    maxWidth: "32.67%",
+  },
+  postImage: {
+    width: "100%",
+    height: "100%",
   },
 });

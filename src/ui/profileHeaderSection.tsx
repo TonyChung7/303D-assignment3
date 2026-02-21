@@ -33,18 +33,18 @@ export default function ProfileHeaderSection() {
           </View>
         </LinearGradient>
 
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={{ marginBottom: 8 }}>Fry</Text>
           <View style={{ flexDirection: "row", gap: 25 }}>
-            <View>
+            <View style={{ flex: 1 }}>
               <Text>9</Text>
               <Text style={{ fontSize: 12 }}>posts</Text>
             </View>
-            <View>
+            <View style={{ flex: 1 }}>
               <Text>1,134</Text>
               <Text style={{ fontSize: 12 }}>followers</Text>
             </View>
-            <View>
+            <View style={{ flex: 1 }}>
               <Text>513</Text>
               <Text style={{ fontSize: 12 }}>following</Text>
             </View>
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 12,
+    flex: 1,
   },
   gradientBorder: {
     width: 110,

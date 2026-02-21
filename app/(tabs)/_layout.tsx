@@ -8,6 +8,7 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarStyle: { paddingTop: 8 },
       }}
     >
       <Tabs.Screen

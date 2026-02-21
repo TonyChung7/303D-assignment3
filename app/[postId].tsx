@@ -96,11 +96,11 @@ export default function Post() {
               style={styles.avatarlikes}
             />
             <Image
-              source={require("../assets/images/avatar.jpg")}
+              source={require("../assets/images/post02.jpg")}
               style={styles.avatarlikes}
             />
             <Image
-              source={require("../assets/images/avatar.jpg")}
+              source={require("../assets/images/post03.jpg")}
               style={styles.avatarlikes}
             />
             <Text style={styles.likestext}>

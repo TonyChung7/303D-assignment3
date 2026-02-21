@@ -12,8 +12,11 @@ export default function PostList() {
     <FlatList
       data={sortedPosts}
       numColumns={3}
+      columnWrapperStyle={{ gap: 1 }}
+      contentContainerStyle={{ gap: 1 }}
       ListHeaderComponent={ProfileHeaderSection}
       renderItem={({ item }) => postCard(item)}
+      keyExtractor={(item) => item.id}
     />
   );
 }
