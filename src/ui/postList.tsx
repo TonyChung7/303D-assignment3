@@ -14,6 +14,7 @@ export default function PostList() {
       numColumns={3}
       columnWrapperStyle={{ gap: 1 }}
       contentContainerStyle={{ gap: 1 }}
+      showsVerticalScrollIndicator={false}
       ListHeaderComponent={ProfileHeaderSection}
       renderItem={({ item }) => postCard(item)}
       keyExtractor={(item) => item.id}

@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Profile() {
   return (
-    <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }} edges={["top"]}>
       <View style={styles.container}>
         <PostList />
       </View>
