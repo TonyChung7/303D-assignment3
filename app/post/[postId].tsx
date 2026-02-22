@@ -54,7 +54,7 @@ export default function Post() {
         <View style={styles.userRow}>
           <View style={styles.userInfo}>
             <Image
-              source={require("../../assets/images/avatar.jpg")}
+              source={require("@/assets/images/avatar.jpg")}
               style={styles.avatar}
             />
             <View>
@@ -92,15 +92,15 @@ export default function Post() {
         <View style={styles.contentSection}>
           <View style={styles.likesRow}>
             <Image
-              source={require("../../assets/images/avatar.jpg")}
+              source={require("@/assets/images/avatar.jpg")}
               style={styles.avatarlikes}
             />
             <Image
-              source={require("../../assets/images/post02.jpg")}
+              source={require("@/assets/images/post02.jpg")}
               style={styles.avatarlikes}
             />
             <Image
-              source={require("../../assets/images/post03.jpg")}
+              source={require("@/assets/images/post03.jpg")}
               style={styles.avatarlikes}
             />
             <Text style={styles.likestext}>

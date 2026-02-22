@@ -1,6 +1,6 @@
+import { Post } from "@/src/types/post";
 import { router } from "expo-router";
 import { Image, Pressable, StyleSheet } from "react-native";
-import { Post } from "../types/post";
 
 export default function postCard(post: Post) {
   return (

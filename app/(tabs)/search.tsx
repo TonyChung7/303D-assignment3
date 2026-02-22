@@ -1,5 +1,5 @@
 // app/(tabs)/search.tsx
-import SearchGridList from "@/src/ui/searchGridList";
+import SearchGridList from "@/src/ui/searchSection/searchGridList";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

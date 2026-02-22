@@ -1,4 +1,4 @@
-import PostList from "@/src/ui/postList";
+import PostList from "@/src/ui/profileSection/postList";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 

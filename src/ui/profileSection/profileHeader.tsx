@@ -25,7 +25,7 @@ export default function ProfileHeaderSection() {
         >
           <View style={styles.avatarBorder}>
             <Image
-              source={require("../../assets/images/avatar.jpg")}
+              source={require("@/assets/images/avatar.jpg")}
               style={styles.avatar}
             />
           </View>

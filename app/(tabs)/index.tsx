@@ -3,8 +3,8 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import HomePostCardList from "@/src/ui/homePostCardList";
-import StoryCardList from "@/src/ui/storyCardList";
+import HomePostCardList from "@/src/ui/homeSection/homePostCardList";
+import StoryCardList from "@/src/ui/homeSection/storyCardList";
 
 function HeaderBar() {
   return (
