@@ -1,3 +1,4 @@
+import useThemeColor from "@/src/constants/useThemeColor";
 import { posts } from "@/src/data/posts";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -5,7 +6,6 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import {
   Image,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -15,35 +15,36 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Post() {
   const router = useRouter();
+  const { text, tabIconDefault, background } = useThemeColor();
   const { postId } = useLocalSearchParams();
   const post = posts.find((post) => post.id === postId);
 
   if (!post) {
     return (
       <SafeAreaView style={styles.safe}>
-        <StatusBar barStyle="dark-content" />
-        <Text>Post not found</Text>
+        <Text style={{ color: text }}>Post not found</Text>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="dark-content" />
+    <SafeAreaView style={[styles.safe, { backgroundColor: background }]}>
       {/* Top Header */}
-      <View style={styles.header}>
+      <View style={[styles.header, { backgroundColor: background }]}>
         <TouchableOpacity
           style={styles.headerIconBtn}
           onPress={() => {
             router.back();
           }}
         >
-          <Ionicons name="chevron-back" size={24} color="black" />
+          <Ionicons name="chevron-back" size={24} color={tabIconDefault} />
         </TouchableOpacity>
 
         <View style={styles.headerTitleWrap} pointerEvents="none">
-          <Text style={styles.headerSmall}>frenchie_fry39</Text>
-          <Text style={styles.headerTitle}>Posts</Text>
+          <Text style={[styles.headerSmall, { color: text }]}>
+            frenchie_fry39
+          </Text>
+          <Text style={[styles.headerTitle, { color: text }]}>Posts</Text>
         </View>
       </View>
 
@@ -58,12 +59,14 @@ export default function Post() {
               style={styles.avatar}
             />
             <View>
-              <Text style={styles.username}>frenchie_fry39</Text>
+              <Text style={[styles.username, { color: text }]}>
+                frenchie_fry39
+              </Text>
               <Text style={styles.subText}>via frenchie_fry39</Text>
             </View>
           </View>
           <TouchableOpacity style={styles.settingBtn}>
-            <MaterialIcons name="more-horiz" size={24} color="black" />
+            <MaterialIcons name="more-horiz" size={24} color={tabIconDefault} />
           </TouchableOpacity>
         </View>
         <Image
@@ -74,18 +77,30 @@ export default function Post() {
         <View style={styles.iconRow}>
           <View style={styles.leftIconsGroup}>
             <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="heart-outline" size={26} color="black" />
+              <Ionicons name="heart-outline" size={26} color={tabIconDefault} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="chatbubble-outline" size={24} color="black" />
+              <Ionicons
+                name="chatbubble-outline"
+                size={24}
+                color={tabIconDefault}
+              />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="paper-plane-outline" size={24} color="black" />
+              <Ionicons
+                name="paper-plane-outline"
+                size={24}
+                color={tabIconDefault}
+              />
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity style={styles.iconBtn}>
-              <Ionicons name="bookmark-outline" size={24} color="black" />
+              <Ionicons
+                name="bookmark-outline"
+                size={24}
+                color={tabIconDefault}
+              />
             </TouchableOpacity>
           </View>
         </View>
@@ -103,27 +118,41 @@ export default function Post() {
               source={require("@/assets/images/post03.jpg")}
               style={styles.avatarlikes}
             />
-            <Text style={styles.likestext}>
+            <Text style={[styles.likestext, { color: text }]}>
               Liked by
-              <Text style={{ fontWeight: "bold" }}> paisley.print.48 </Text>
+              <Text style={{ fontWeight: "bold", color: text }}>
+                {" "}
+                paisley.print.48{" "}
+              </Text>
               and
-              <Text style={{ fontWeight: "bold" }}> 7 others </Text>
+              <Text style={{ fontWeight: "bold", color: text }}>
+                {" "}
+                7 others{" "}
+              </Text>
             </Text>
           </View>
           <View style={styles.userPost}>
-            <Text style={styles.contentText}>
-              <Text style={styles.username}>frenchie_fry39 </Text>
+            <Text style={[styles.contentText, { color: text }]}>
+              <Text style={[styles.username, { color: text }]}>
+                frenchie_fry39{" "}
+              </Text>
               {post.content}
             </Text>
           </View>
-          <Text style={styles.viewComment}>View all 12 comments</Text>
+          <Text style={[styles.viewComment, { color: text }]}>
+            View all 12 comments
+          </Text>
           <View>
-            <Text style={styles.contentText}>
-              <Text style={styles.username}>lil_wyatt838 </Text>
+            <Text style={[styles.contentText, { color: text }]}>
+              <Text style={[styles.username, { color: text }]}>
+                lil_wyatt838{" "}
+              </Text>
               Awesome tones
             </Text>
-            <Text style={styles.contentText}>
-              <Text style={styles.username}>pia.in.a.pod </Text>
+            <Text style={[styles.contentText, { color: text }]}>
+              <Text style={[styles.username, { color: text }]}>
+                pia.in.a.pod{" "}
+              </Text>
               Gorg. Love it!❤️
             </Text>
           </View>
@@ -137,12 +166,10 @@ export default function Post() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
   },
 
   header: {
     height: 58,
-    backgroundColor: "#FFF",
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#E6E6E6",
     position: "relative",

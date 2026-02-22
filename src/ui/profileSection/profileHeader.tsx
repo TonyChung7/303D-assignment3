@@ -1,3 +1,4 @@
+import useThemeColor from "@/src/constants/useThemeColor";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -5,14 +6,17 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function ProfileHeaderSection() {
+  const { text, tabIconDefault, tabIconSelected } = useThemeColor();
   return (
     <View>
       <View style={styles.userRow}>
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>frenchie_fry39</Text>
-        <Ionicons name="chevron-down" size={24} color="black" />
+        <Text style={{ fontSize: 16, fontWeight: "bold", color: text }}>
+          frenchie_fry39
+        </Text>
+        <Ionicons name="chevron-down" size={24} color={tabIconDefault} />
         <View style={styles.moreBtn}>
-          <AntDesign name="plus" size={24} color="black" />
-          <AntDesign name="menu" size={24} color="black" />
+          <AntDesign name="plus" size={24} color={tabIconDefault} />
+          <AntDesign name="menu" size={24} color={tabIconDefault} />
         </View>
       </View>
 
@@ -32,36 +36,36 @@ export default function ProfileHeaderSection() {
         </LinearGradient>
 
         <View style={{ flex: 1 }}>
-          <Text style={{ marginBottom: 8 }}>Fry</Text>
+          <Text style={{ marginBottom: 8, color: text }}>Fry</Text>
           <View style={{ flexDirection: "row", gap: 25 }}>
             <View style={{ flex: 1 }}>
-              <Text>9</Text>
-              <Text style={{ fontSize: 12 }}>posts</Text>
+              <Text style={{ color: text }}>9</Text>
+              <Text style={{ fontSize: 12, color: text }}>posts</Text>
             </View>
             <View style={{ flex: 1 }}>
-              <Text>1,134</Text>
-              <Text style={{ fontSize: 12 }}>followers</Text>
+              <Text style={{ color: text }}>1,134</Text>
+              <Text style={{ fontSize: 12, color: text }}>followers</Text>
             </View>
             <View style={{ flex: 1 }}>
-              <Text>513</Text>
-              <Text style={{ fontSize: 12 }}>following</Text>
+              <Text style={{ color: text }}>513</Text>
+              <Text style={{ fontSize: 12, color: text }}>following</Text>
             </View>
           </View>
         </View>
       </View>
 
       <View style={styles.bio}>
-        <Text>Here for a good time</Text>
-        <Text>@frenchie_fry39</Text>
+        <Text style={{ color: text }}>Here for a good time</Text>
+        <Text style={{ color: text }}>@frenchie_fry39</Text>
       </View>
 
       <View style={styles.profileActions}>
         <Pressable style={styles.actionBtn1}>
-          <Text style={{ fontSize: 13 }}>Edit profile</Text>
+          <Text style={{ fontSize: 13, color: text }}>Edit profile</Text>
         </Pressable>
 
         <Pressable style={styles.actionBtn1}>
-          <Text style={{ fontSize: 13 }}>Share profile</Text>
+          <Text style={{ fontSize: 13, color: text }}>Share profile</Text>
         </Pressable>
 
         <Pressable style={styles.actionBtn2}>
@@ -70,10 +74,10 @@ export default function ProfileHeaderSection() {
       </View>
 
       <View style={styles.iconRow}>
-        <MaterialIcons name="grid-on" size={26} color="black" />
-        <AntDesign name="play-square" size={26} color="gray" />
-        <MaterialIcons name="repeat" size={26} color="gray" />
-        <MaterialIcons name="account-box" size={26} color="gray" />
+        <MaterialIcons name="grid-on" size={26} color={tabIconSelected} />
+        <AntDesign name="play-square" size={26} color={tabIconDefault} />
+        <MaterialIcons name="repeat" size={26} color={tabIconDefault} />
+        <MaterialIcons name="account-box" size={26} color={tabIconDefault} />
       </View>
     </View>
   );
