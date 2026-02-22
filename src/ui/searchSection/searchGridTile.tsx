@@ -4,11 +4,15 @@ import { router } from "expo-router";
 import React from "react";
 import { Image, Pressable, StyleSheet } from "react-native";
 
-export default function SearchGridTile({ tile }: { tile: SearchTile }) {
+type Props = {
+  tile: SearchTile;
+  size?: number; // Optional size prop for flexibility, but we can also rely on styles
+};
+export default function SearchGridTile({ tile, size }: Props) {
   return (
     <Pressable
       onPress={() => router.push(`/search/${tile.id}` as any)}
-      style={styles.cardContainer}
+      style={[styles.cardContainer, { width: size, height: size }]}
     >
       <Image source={tile.image} style={styles.postImage} resizeMode="cover" />
     </Pressable>
