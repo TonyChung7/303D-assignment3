@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     aspectRatio: 4 / 5, // square grid cell
-    maxWidth: "32.67%", // 3 columns like your profile layout
+    maxWidth: "33.33%", // 3 columns like your profile layout
     backgroundColor: "#000", // avoids tiny gaps on high density screens
     overflow: "hidden",
   },

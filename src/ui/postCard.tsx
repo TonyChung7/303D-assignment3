@@ -5,7 +5,7 @@ import { Post } from "../types/post";
 export default function postCard(post: Post) {
   return (
     <Pressable
-      onPress={() => router.push(`/${post.id}`)}
+      onPress={() => router.push(`/post/${post.id}` as any)}
       style={styles.cardContainer}
     >
       <Image
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     aspectRatio: 4 / 5,
-    maxWidth: "32.67%",
+    maxWidth: "33.33%",
   },
   postImage: {
     width: "100%",
