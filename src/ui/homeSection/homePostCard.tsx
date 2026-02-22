@@ -1,3 +1,4 @@
+import useThemeColor from "@/src/constants/useThemeColor";
 import type { HomePost } from "@/src/types/homepost";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -42,23 +43,26 @@ export default function HomePostCard({ post, user, meta }: Props) {
     typeof meta?.reposts === "number" ||
     typeof meta?.sends === "number";
 
+  const { text, background, tabIconDefault } = useThemeColor();
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, { backgroundColor: background }]}>
       {/* Top: Avatar/Username/More */}
       <View style={styles.cardHeader}>
         <View style={styles.cardHeaderLeft}>
           <Image source={user.avatar} style={styles.cardAvatar} />
           <View>
-            <Text style={styles.cardUser}>{user.name}</Text>
+            <Text style={[styles.cardUser, { color: text }]}>{user.name}</Text>
             {!!user.location && (
-              <Text style={styles.cardSubtle}>{user.location}</Text>
+              <Text style={[styles.cardSubtle, { color: text }]}>
+                {user.location}
+              </Text>
             )}
           </View>
         </View>
         <TouchableOpacity
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Feather name="more-horizontal" size={20} color="#111" />
+          <Feather name="more-horizontal" size={20} color={tabIconDefault} />
         </TouchableOpacity>
       </View>
 
@@ -76,9 +80,11 @@ export default function HomePostCard({ post, user, meta }: Props) {
             style={styles.iconWithText}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
-            <FontAwesome name="heart-o" size={20} color="#111" />
+            <FontAwesome name="heart-o" size={20} color={tabIconDefault} />
             {showCounts && (
-              <Text style={styles.iconCount}>{format(meta?.likes)}</Text>
+              <Text style={[styles.iconCount, { color: text }]}>
+                {format(meta?.likes)}
+              </Text>
             )}
           </TouchableOpacity>
 
@@ -86,9 +92,11 @@ export default function HomePostCard({ post, user, meta }: Props) {
             style={styles.iconWithText}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
-            <Octicons name="comment" size={20} color="#111" />
+            <Octicons name="comment" size={20} color={tabIconDefault} />
             {showCounts && (
-              <Text style={styles.iconCount}>{format(meta?.comments)}</Text>
+              <Text style={[styles.iconCount, { color: text }]}>
+                {format(meta?.comments)}
+              </Text>
             )}
           </TouchableOpacity>
 
@@ -96,9 +104,11 @@ export default function HomePostCard({ post, user, meta }: Props) {
             style={styles.iconWithText}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
-            <Octicons name="sync" size={20} color="#111" />
+            <Octicons name="sync" size={20} color={tabIconDefault} />
             {showCounts && (
-              <Text style={styles.iconCount}>{format(meta?.reposts)}</Text>
+              <Text style={[styles.iconCount, { color: text }]}>
+                {format(meta?.reposts)}
+              </Text>
             )}
           </TouchableOpacity>
 
@@ -106,9 +116,11 @@ export default function HomePostCard({ post, user, meta }: Props) {
             style={styles.iconWithText}
             hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
           >
-            <Feather name="send" size={20} color="#111" />
+            <Feather name="send" size={20} color={tabIconDefault} />
             {showCounts && (
-              <Text style={styles.iconCount}>{format(meta?.sends)}</Text>
+              <Text style={[styles.iconCount, { color: text }]}>
+                {format(meta?.sends)}
+              </Text>
             )}
           </TouchableOpacity>
         </View>
@@ -117,7 +129,7 @@ export default function HomePostCard({ post, user, meta }: Props) {
           style={styles.iconBtnRight}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Octicons name="bookmark" size={22} color="#111" />
+          <Octicons name="bookmark" size={22} color={tabIconDefault} />
         </TouchableOpacity>
       </View>
 
@@ -125,11 +137,13 @@ export default function HomePostCard({ post, user, meta }: Props) {
       <View style={styles.textBlock}>
         {!!post.caption && (
           <Text style={styles.captionText}>
-            <Text style={styles.boldText}>{user.name} </Text>
+            <Text style={[styles.boldText, { color: text }]}>{user.name} </Text>
             {post.caption}
           </Text>
         )}
-        <Text style={styles.mutedMeta}>{timeAgo(post.time)}</Text>
+        <Text style={[styles.mutedMeta, { color: text }]}>
+          {timeAgo(post.time)}
+        </Text>
       </View>
     </View>
   );
@@ -159,7 +173,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#e6e6e6",
-    backgroundColor: "#fff",
   },
   cardHeader: {
     height: 56,
@@ -170,7 +183,7 @@ const styles = StyleSheet.create({
   },
   cardHeaderLeft: { flexDirection: "row", alignItems: "center", gap: 8 },
   cardAvatar: { width: 34, height: 34, borderRadius: 17 },
-  cardUser: { fontSize: 14, fontWeight: "600", color: "#111" },
+  cardUser: { fontSize: 14, fontWeight: "600" },
   cardSubtle: { fontSize: 12, color: "#6b7280" },
   cardImage: { width: "100%", backgroundColor: "#f2f2f2" },
 

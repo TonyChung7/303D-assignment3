@@ -3,27 +3,29 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import useThemeColor from "@/src/constants/useThemeColor";
 import HomePostCardList from "@/src/ui/homeSection/homePostCardList";
 import StoryCardList from "@/src/ui/homeSection/storyCardList";
 
 function HeaderBar() {
+  const { background, text, tabIconDefault } = useThemeColor();
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, { backgroundColor: background }]}>
       <TouchableOpacity
         style={styles.headerBtn}
         hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
       >
-        <Octicons name="plus" size={22} color="#111" />
+        <Octicons name="plus" size={22} color={tabIconDefault} />
       </TouchableOpacity>
 
-      <Text style={styles.brand}>Instagram</Text>
+      <Text style={[styles.brand, { color: text }]}>Instagram</Text>
 
       <View style={styles.headerRight}>
         <TouchableOpacity
           style={styles.headerBtn}
           hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
         >
-          <Octicons name="heart" size={22} color="#111" />
+          <Octicons name="heart" size={22} color={tabIconDefault} />
         </TouchableOpacity>
       </View>
     </View>
@@ -31,8 +33,12 @@ function HeaderBar() {
 }
 
 export default function HomeScreen() {
+  const { background } = useThemeColor();
   return (
-    <SafeAreaView style={styles.safe} edges={["top"]}>
+    <SafeAreaView
+      style={[styles.safe, { backgroundColor: background }]}
+      edges={["top"]}
+    >
       <HeaderBar />
       <HomePostCardList
         ListHeaderComponent={<StoryCardList />}
@@ -43,7 +49,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#fff" },
+  safe: { flex: 1 },
   header: {
     height: 52,
     flexDirection: "row",
@@ -52,7 +58,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#e6e6e6",
-    backgroundColor: "#fff",
   },
   headerBtn: { padding: 6 },
   brand: { fontSize: 24, fontWeight: "700" },

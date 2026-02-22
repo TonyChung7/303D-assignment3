@@ -1,3 +1,4 @@
+import useThemeColor from "@/src/constants/useThemeColor";
 import type { StoryItem } from "@/src/types/story";
 import Octicons from "@expo/vector-icons/Octicons";
 import React from "react";
@@ -15,8 +16,9 @@ type Props = {
 };
 
 export default function StoryCard({ story, ringColor = "#ee2a7b" }: Props) {
+  const { text, background } = useThemeColor();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: background }]}>
       <View
         style={[
           styles.ring,
@@ -35,7 +37,7 @@ export default function StoryCard({ story, ringColor = "#ee2a7b" }: Props) {
           )}
         </View>
       </View>
-      <Text numberOfLines={1} style={styles.label}>
+      <Text numberOfLines={1} style={[styles.label, { color: text }]}>
         {story.label}
       </Text>
     </View>

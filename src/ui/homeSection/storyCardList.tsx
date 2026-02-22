@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#e6e6e6",
-    backgroundColor: "#fff",
   },
 });

@@ -60,15 +60,30 @@ export default function ProfileHeaderSection() {
       </View>
 
       <View style={styles.profileActions}>
-        <Pressable style={styles.actionBtn1}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.actionBtn1,
+            pressed && styles.pressedStyle,
+          ]}
+        >
           <Text style={{ fontSize: 13, color: text }}>Edit profile</Text>
         </Pressable>
 
-        <Pressable style={styles.actionBtn1}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.actionBtn1,
+            pressed && styles.pressedStyle,
+          ]}
+        >
           <Text style={{ fontSize: 13, color: text }}>Share profile</Text>
         </Pressable>
 
-        <Pressable style={styles.actionBtn2}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.actionBtn2,
+            pressed && styles.pressedStyle,
+          ]}
+        >
           <Ionicons name="person-add-outline" size={16} color="black" />
         </Pressable>
       </View>
@@ -138,6 +153,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  pressedStyle: {
+    opacity: 0.5,
   },
   actionBtn2: {
     backgroundColor: "lightgray",

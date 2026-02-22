@@ -1,14 +1,16 @@
+import useThemeColor from "@/src/constants/useThemeColor";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Octicons from "@expo/vector-icons/Octicons";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
+  const { background } = useThemeColor();
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: { paddingTop: 8 },
+        tabBarStyle: { paddingTop: 8, backgroundColor: background },
 
         tabBarActiveTintColor: "#2d90d6", // selected color
         tabBarInactiveTintColor: "#8e8e93", // unselected color
@@ -18,7 +20,7 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, focused }) => (
+          tabBarIcon: ({ color }) => (
             <Octicons name="home" size={24} color={color} />
           ),
         }}

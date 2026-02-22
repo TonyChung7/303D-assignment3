@@ -5,7 +5,6 @@ import {
   Dimensions,
   Image,
   ImageSourcePropType,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -28,7 +27,6 @@ export default function SearchDetailScreen() {
   if (!item) {
     return (
       <SafeAreaView style={styles.safe}>
-        <StatusBar hidden animated barStyle="dark-content" />
         <View style={styles.center}>
           <Text style={styles.notFound}>Content not found</Text>
           <TouchableOpacity
@@ -44,8 +42,6 @@ export default function SearchDetailScreen() {
 
   return (
     <SafeAreaView style={styles.safe}>
-      <StatusBar hidden animated barStyle="light-content" />
-
       {/* Top overlay header */}
       <View style={styles.header}>
         <TouchableOpacity
